@@ -65,6 +65,7 @@ class Company{
 
 ## Create async method for api call
 ```dart
+import 'package:http/http.dart' as http;
 Future<List<User>> fetchUsers() async {
     final response =
         await http.get('https://jsonplaceholder.typicode.com/users');
