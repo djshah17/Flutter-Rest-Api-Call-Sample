@@ -90,3 +90,29 @@ Future<List<User>> listUsers;
     listUsers = fetchUsers();
   }
 ```
+
+## Display data
+```dart
+@override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        body: FutureBuilder<List<User>>(
+      future: listUsers,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+             
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text("${snapshot.error}"),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(
+            backgroundColor: Colors.cyanAccent,
+          ),
+        );
+      },
+    ));
+  }
+```
